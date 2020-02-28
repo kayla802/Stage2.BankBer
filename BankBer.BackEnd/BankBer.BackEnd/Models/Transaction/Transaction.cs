@@ -18,5 +18,6 @@ namespace BankBer.BackEnd.Models.Transaction
 
         public TransactionType Type { get; set; }
         public DateTime Timestamp { get; set; }
+        public string Description { get; set; }
     }
 }

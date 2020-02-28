@@ -65,6 +65,7 @@ $(function () {
                 AccountId: selectedAccount.Id,
                 Amount: $("#new-transaction-amount").val(),
                 Type: $("#new-transaction-type option:selected").val(),
+                Description: $("#new-transaction-description").val(),
                 Timestamp: $("#new-transaction-date").val()
             }
         })
@@ -90,7 +91,7 @@ function populateTransactionList(transactions) {
     for (let transaction of transactions) {
         let transactionDate = new Date(transaction.Timestamp)
         let dateString = `${transactionDate.getMonth() + 1}/${transactionDate.getDate()}/${transactionDate.getFullYear()} ${transactionDate.getHours()}:${transactionDate.getMinutes()}`
-        let newTransaction = $(`<tr><td>${dateString}</td><td>${transaction.Amount}</td><td>${transaction.Type}</td></div>`)
+        let newTransaction = $(`<tr><td>${dateString}</td><td>${transaction.Amount}</td><td>${transaction.Type}</td><td>${transaction.Description}</td></div>`)
         transactionList.append(newTransaction);
     }
 }

@@ -12,6 +12,8 @@ namespace BankBer.BackEnd.Data_Access
 {
     public class TransactionDao: DaoBase
     {
+        private object newDescription;
+
         public List<Transaction> GetAllTransactionsForAccount(Guid accountId)
         {
             using (var db = new LiteDatabase(BankBerDbLocation))
@@ -60,7 +62,8 @@ namespace BankBer.BackEnd.Data_Access
                     AccountId = newTransaction.AccountId,
                     Timestamp = DateTime.Now,
                     Amount = newTransaction.Amount,
-                    Type = newTransaction.Type
+                    Type = newTransaction.Type,
+                    Description = newTransaction.Description
                 };
 
                 transactionCol.Insert(transaction);
