@@ -28,6 +28,7 @@ namespace BankBer.BackEnd.Controllers
         [HttpPost]
         public Transaction AddTransaction(NewTransaction newTransaction)
         {
+
             var transactionDao = new TransactionDao();
             return transactionDao.InsertTransaction(newTransaction);
         }

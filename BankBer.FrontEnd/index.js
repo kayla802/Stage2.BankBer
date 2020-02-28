@@ -91,7 +91,8 @@ function populateTransactionList(transactions) {
     for (let transaction of transactions) {
         let transactionDate = new Date(transaction.Timestamp)
         let dateString = `${transactionDate.getMonth() + 1}/${transactionDate.getDate()}/${transactionDate.getFullYear()} ${transactionDate.getHours()}:${transactionDate.getMinutes()}`
-        let newTransaction = $(`<tr><td>${dateString}</td><td>${transaction.Amount}</td><td>${transaction.Type}</td><td>${transaction.Description}</td></div>`)
+        let newTransaction = $(`<tr><td>${dateString}</td><td>$${transaction.Amount}</td><td>${transaction.Type}</td> + <td>${transaction.Description ? transaction.Description : "No Description"}</td></div>`)
+
         transactionList.append(newTransaction);
     }
 }
